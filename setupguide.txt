@@ -1,0 +1,8 @@
+
+
+1. Open Terminal & go to the folder Memory-Management-Visualizer
+2. Install tools (once):
+   `pip install -r requirements.txt`
+3. Start the app:
+   `python app.py`
+4. Open browser to: `http://127.0.0.1:5000/`

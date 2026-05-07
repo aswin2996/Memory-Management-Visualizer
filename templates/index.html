@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Memory Management Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Dynamic Memory Management Visualizer</h1>
+        <p>A simple simulation for OS concepts: Paging, Segmentation, and Virtual Memory.</p>
+    </header>
+
+    <main>
+        <!-- Paging Section -->
+        <section class="module" id="paging-section">
+            <h2>1. Paging Simulation</h2>
+            <div class="input-group">
+                <label>Page Reference String (comma separated):</label>
+                <input type="text" id="page-string" placeholder="e.g. 7,0,1,2,0,3,0,4,2,3" value="7,0,1,2,0,3,0,4,2,3">
+                
+                <label>Number of Frames:</label>
+                <input type="number" id="frame-count" value="3" min="1" max="10">
+                
+                <label>Algorithm:</label>
+                <select id="algo-select">
+                    <option value="FIFO">FIFO</option>
+                    <option value="LRU">LRU</option>
+                </select>
+                
+                <button onclick="runPaging()">Simulate</button>
+            </div>
+            
+            <div id="paging-output" class="output-area">
+                <!-- Results will be injected here -->
+                <p>Output will appear here...</p>
+            </div>
+        </section>
+
+        <!-- Segmentation Section -->
+        <section class="module" id="segmentation-section">
+            <h2>2. Segmentation</h2>
+            <div class="input-group">
+                <h3>Segment Table Definition</h3>
+                <p>Define a simple segment (ID: 0)</p>
+                <label>Base Address:</label>
+                <input type="number" id="seg-base" value="1000">
+                <label>Limit:</label>
+                <input type="number" id="seg-limit" value="500">
+                
+                <hr>
+                
+                <h3>Logical Address</h3>
+                <label>Segment Number:</label>
+                <input type="number" id="logical-seg" value="0">
+                <label>Offset:</label>
+                <input type="number" id="logical-offset" value="150">
+                
+                <button onclick="runSegmentation()">Calculate Physical Address</button>
+            </div>
+            
+            <div id="segmentation-output" class="output-area">
+                <!-- Results will be injected here -->
+                <p>Output will appear here...</p>
+            </div>
+        </section>
+
+        <!-- Virtual Memory Section -->
+        <section class="module" id="vm-section">
+            <h2>3. Virtual Memory Basics</h2>
+            <div class="input-group">
+                <label>Total Virtual Pages:</label>
+                <input type="number" id="vm-virtual" value="10">
+                <label>Total Physical Frames:</label>
+                <input type="number" id="vm-physical" value="4">
+                <label>Process Required Pages:</label>
+                <input type="number" id="vm-process" value="6">
+                
+                <button onclick="runVirtualMemory()">Simulate Mapping</button>
+            </div>
+            
+            <div id="vm-output" class="output-area">
+                <!-- Results will be injected here -->
+                <p>Output will appear here...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p></p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
